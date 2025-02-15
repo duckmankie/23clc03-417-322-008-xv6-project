@@ -19,12 +19,13 @@ int main(int argc, char *argv[]) {
 
     // Copy the initial command arguments
    
-	while (count < argc)
+	while (count < argc - 1)
 	{
 		initial_command[count] = argv[count + 1];
 		++count;
 	}
    
+    
 
     while (read(0, &charactor, 1) > 0) { // Read input character by character
         if (is_blank(charactor)) { 
@@ -32,8 +33,8 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        if (blanks) {  // If there were blanks space before, mark the end of a word
-            buf[offset++] = 0;
+        if (blanks > 0) {  // If there were blanks space before, mark the end of a word
+			buf[offset++] = 0;
             initial_command[count++] = p; // Store pointer to the argument
             p = buf + offset;
             blanks = 0;
