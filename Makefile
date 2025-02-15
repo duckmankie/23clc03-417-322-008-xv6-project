@@ -194,8 +194,6 @@ UPROGS=\
 	$U/_find\
 	$U/_xargs
 
-
-
 ifeq ($(LAB),$(filter $(LAB), lock))
 UPROGS += \
 	$U/_stats
